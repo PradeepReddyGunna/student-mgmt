@@ -1,0 +1,19 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: student-mgmt-deployment
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: student-mgmt
+  template:
+    metadata:
+      labels:
+        app: student-mgmt
+    spec:
+      containers:
+      - name: student-mgmt
+        image: <your-dockerhub-username>/student-mgmt:latest
+        ports:
+        - containerPort: 8080
