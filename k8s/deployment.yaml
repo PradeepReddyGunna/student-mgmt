@@ -2,6 +2,8 @@ apiVersion: apps/v1
 kind: Deployment
 metadata:
   name: student-mgmt-deployment
+  labels:
+    app: student-mgmt
 spec:
   replicas: 1
   selector:
@@ -14,6 +16,7 @@ spec:
     spec:
       containers:
       - name: student-mgmt
-        image: <your-dockerhub-username>/student-mgmt:latest
+        image: gunnapradeepreddy/student-mgmt:latest
         ports:
         - containerPort: 8080
+        imagePullPolicy: Always
